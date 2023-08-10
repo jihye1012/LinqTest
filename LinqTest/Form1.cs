@@ -65,7 +65,40 @@ namespace LinqTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            marketBindingSource.DataSource = productList;
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            marketBindingSource.DataSource = productList;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            marketBindingSource.DataSource = from item in productList
+                                          orderby item.name
+                                          select item;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            marketBindingSource.DataSource = from item in productList
+                                             orderby item.price ascending
+                                             select item;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            marketBindingSource.DataSource = from item in productList
+                                             orderby item.price descending
+                                             select item;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            marketBindingSource.DataSource = from item in productList
+                                             orderby item.rank
+                                             select item;
         }
     }
 }
